@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+section {
+  background: #222;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+/* CLOCK */
+
+.clock {
+  text-align: center;
+  width: 300px;
+}
+
+.clock__hours {
+  font-size: 5vw;
+  font-weight: 200;
+}
+
+/* TIMER */
+
+.timer {
+  margin-top: 3vh;
+  text-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.timer__button {
+  border: none;
+  padding: 0.5vw;
+}
