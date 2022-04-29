@@ -16,6 +16,8 @@ section {
   background: #222;
   color: #fff;
   padding: 10px 20px;
+  margin-top: 3vh;
+
 }
 
 /* CLOCK */
@@ -33,7 +35,6 @@ section {
 /* TIMER */
 
 .timer {
-  margin-top: 3vh;
   text-align: center;
   width: 300px;
   display: flex;
@@ -44,4 +45,14 @@ section {
 .timer__button {
   border: none;
   padding: 0.5vw;
+}
+
+/* CHRONOMETRE */
+
+.stopWatch {
+  display: flex;
+  flex-direction: column;
+}
+.stopWatch__input {
+  width: 20%;
 }

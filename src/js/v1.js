@@ -8,20 +8,22 @@
 // console.log(date.toLocaleTimeString("fr-FR"));
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Minuteur
   const timerInput = document.querySelector(".timer__input");
   const timerButton = document.querySelector(".timer__button");
   const upButton = document.querySelector(".up");
   const downButton = document.querySelector(".down");
   let timerIntval = null;
 
+  /* HORLOGE */
   function clock() {
     const now = new Date();
     const hours = document.querySelector(".clock__hours");
     const time = now.toLocaleTimeString("fr-FR");
     hours.innerHTML = time;
-    console.log(time);
   }
 
+  /* MINUTEUR */
   function timer() {
     // document.addEventListener("keydown", (event) => {
     //   switch (event.key) {
@@ -37,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //       break;
     //   }
     // });
-    
+
     upButton.addEventListener("click", (event) => {
       timerInput.value++;
     });
@@ -69,11 +71,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function stopWatch() {
+  /* CHRONOMETRE */
+  // Chronometre
+  const stopWatchDisplay = document.querySelector(".stopWatch__display");
+  const stopWatchButton = document.querySelector(".stopWatch__button");
 
+  var begin;
+  var end;
+  var timer;
+
+  function start() {
+    begin = new Date();
+    timer = setInterval(update, 1000);
+  }
+
+  function update() {
+    end = new Date();
+    elapsed = end - begin;
+
+    // convert the milliseconds into hours, minutes and seconds here
+    // update your HTML elements
   }
 
   setInterval(clock, 1000);
   timer();
-  stopWatch();
 });
