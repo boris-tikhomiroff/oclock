@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // DOM Content
   let display = document.querySelector(".countdown__display");
   let startButton = document.querySelector(".countdown__start");
   let resetButton = document.querySelector(".countdown__reset");
@@ -7,11 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let hours = document.querySelector(".controls__h");
   let container = document.querySelector(".controls__container");
   let controls = document.querySelector(".controls");
-  console.log(controls);
   let int = null;
   let timeInputs = document.querySelectorAll('input[type="number"]');
   let span = document.querySelectorAll("span");
   let para = document.querySelector("p");
+  let message = document.querySelector(".message");
 
   for (let i = 0; i < timeInputs.length; i++) {
     timeInputs[i].addEventListener("input", (e) => {
@@ -63,12 +64,15 @@ document.addEventListener("DOMContentLoaded", () => {
       int === null
     ) {
       // DO AN ACTION (ne pas créer un nouverau paragraphe, faire une annimation sur celui existant)
-      para.innerHTML = "Spécifiez un minuteur";
+      // para.innerHTML = "Spécifiez un minuteur";
+      message.innerText = "Spécifiez un minuteur";
     } else if (int === null) {
       int = setInterval(timer, 1000);
+      startButton.textContent = "Stop";
     } else {
       clearInterval(int);
       int = null;
+      startButton.textContent = "Start";
     }
   }
 
@@ -82,6 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
     hours.value = 0;
     minutes.value = 0;
     seconds.value = 0;
+    message.innerText = "Set your timer using the inputs below.";
+    startButton.textContent = "Start";
   }
 
   function tt() {
@@ -102,12 +108,25 @@ document.addEventListener("DOMContentLoaded", () => {
     controls.classList.remove("not-visible");
   }
 
+  // Event listeners
   startButton.addEventListener("click", () => {
     tt();
     startStop();
   });
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "s") {
+      tt();
+      startStop();
+    }
+  });
   resetButton.addEventListener("click", () => {
     reset();
     dd();
+  });
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "q") {
+      reset();
+      dd();
+    }
   });
 });
