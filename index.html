@@ -5,37 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>O'Clock - Project</title>
-    <link rel="stylesheet" href="/src/style/style.css" />
-    <script src="src/js/v1.js"></script>
+    <link rel="stylesheet" href="src/style/main.css" />
+    <script src="src/js/index.js"></script>
   </head>
   <body>
-    <main>
-      <section class="clock">
-        <h2>Horloge</h2>
-        <p class="clock__hours"></p>
-        <p></p>
-      </section>
-
-      <section class="timer">
-        <h2>Minuteur</h2>
-        <div>
-          <input type="number" class="timer__input" min="0" max="5" value="0" />
-          <button class="up">UP</button>
-          <button class="down">DOWN</button>
-          <button class="timer__button">START / STOP</button>
+    <header>
+      <div class="menu">
+        <div class="menu-tog">
+          <span></span>
+          <span></span>
         </div>
-      </section>
+      </div>
 
-      <section class="stopWatch">
-        <h2>Chronometre</h2>
-        <div class="stopWatch__display">00 : 00 : 00 : 000</div>
-        <div>
-          <button class="stopWatch__button">PLAY / STOP</button>
-          <button class="stopWatch__lap">LAP</button>
-          <button class="stopWatch__reset">RESET</button>
-        </div>
-        <ul></ul>
-      </section>
-    </main>
+      <nav class="wrapper">
+        <svg
+          class="transition"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="path"
+            stroke="black"
+            fill="#fcc42a"
+            stroke-width="0px"
+            dur="10s"
+            vector-effect="non-scaling-stroke"
+            d="M 0 100 L 100 100 100 100 0 100 C 0 0, 0 0, 0 100"
+          />
+          <animateMotion dur="10s" repeatCount="indefinite">
+            <mpath xlink:href="#path" />
+          </animateMotion>
+        </svg>
+        <ul>
+          <li><a href="#">ACCUEIL</a></li>
+          <li><a href="/src/pages/horloge.html">HORLOGE</a></li>
+          <li><a href="/src/pages/minuteur.html">MINUTEUR</a></li>
+          <li><a href="#">REVEIL</a></li>
+        </ul>
+      </nav>
+    </header>
   </body>
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chronometre</title>
+    <link rel="stylesheet" href="../style/main.css" />
+    <script src="../js/chronometre.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Chronometre</h1>
+      <section class="timer">
+        <div class="timer__container">
+          <input
+            type="number"
+            class="timer__input-hour"
+            value="0"
+            min="0"
+            max="24"
+          />
+          <p>:</p>
+          <input
+            type="number"
+            class="timer__input-minutes"
+            value="0"
+            min="0"
+            max="60"
+          />
+          <p>:</p>
+          <input
+            type="number"
+            class="timer__input-seconds"
+            value="0"
+            min="0"
+            max="60"
+          />
+        </div>
+        <div class="timer__container">
+          <p>Heures</p>
+          <p>Minutes</p>
+          <p>Secondes</p>
+        </div>
+
+        <button class="timer__button">START / STOP</button>
+        <button class="timer__reset">RESET</button>
+      </section>
+    </main>
+  </body>
+</html>
