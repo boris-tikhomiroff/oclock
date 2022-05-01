@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     s = s < 10 ? "0" + s : s;
 
     if (s != 0) {
-      console.log(s);
+      // console.log(s);
       seconds.value--;
     } else if (minutes.value != 0 && seconds.value == 0) {
       seconds.value = 59;
@@ -46,6 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (hours.value <= 0 && minutes.value <= 0 && seconds.value <= 0) {
       clearInterval(int);
       int = null;
+      dd();
+      startButton.textContent = "Start";
+      // window.alert("hello");
     }
 
     // display.innerHTML = `${h} : ${m} : ${s}`;
@@ -77,17 +80,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function reset() {
-    clearInterval(int);
-    int = null;
-    // display.innerHTML = "00 : 00 : 00";
-    span[0].innerHTML = "00";
-    span[1].innerHTML = "00";
-    span[2].innerHTML = "00";
-    hours.value = 0;
-    minutes.value = 0;
-    seconds.value = 0;
-    message.innerText = "Set your timer using the inputs below.";
-    startButton.textContent = "Start";
+    if (hours.value <= 0 && minutes.value <= 0 && seconds.value <= 0) {
+      // Ajouter Effect !
+      for (let i = 0; i < timeInputs.length; i++) {
+        timeInputs[i].style.background = "red";
+        message.innerText = "Set your timer using the inputs below.";
+      }
+    } else {
+      clearInterval(int);
+      int = null;
+      // display.innerHTML = "00 : 00 : 00";
+      span[0].innerHTML = "00";
+      span[1].innerHTML = "00";
+      span[2].innerHTML = "00";
+      hours.value = 0;
+      minutes.value = 0;
+      seconds.value = 0;
+      message.innerText = "Set your timer using the inputs below.";
+      startButton.textContent = "Start";
+    }
   }
 
   function tt() {
