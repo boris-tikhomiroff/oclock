@@ -1,41 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // DOM CONTENT
+  const startButton = document.getElementById("startTimer");
+  const resetButton = document.getElementById("resetTimer");
+  const lap = document.querySelector(".lapTimer");
   let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
   let timerRef = document.querySelector(".timerDisplay");
   let int = null;
-  let ul = document.querySelector("ul");
   let functionIsRunning = false;
+  let ul = document.querySelector("ul");
 
   function deleteChild() {
-    let e = document.querySelector("ul");
+    let el = document.querySelector("ul");
 
-    //e.firstElementChild can be used.
-    let child = e.lastElementChild;
+    let child = el.lastElementChild;
     while (child) {
-      e.removeChild(child);
-      child = e.lastElementChild;
+      el.removeChild(child);
+      child = el.lastElementChild;
     }
   }
 
-  const startButton = document.getElementById("startTimer");
-
-  // document.getElementById("startTimer").addEventListener("click", () => {
-  //   if (int !== null) {
-  //     clearInterval(int);
-  //   }
-  //   int = setInterval(displayTimer, 10);
-  // });
-
-  document.getElementById("pauseTimer").addEventListener("click", () => {
-    clearInterval(int);
-  });
-
-  document.getElementById("resetTimer").addEventListener("click", () => {
-    clearInterval(int);
+  function reset() {
+    if (int !== null) {
+      clearInterval(int);
+      int = null;
+    }
     [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
     timerRef.innerHTML = "00 : 00 : 00 : 000 ";
-    // ul.removeChild(ul);
-    deleteChild();
-  });
+  }
 
   function startStop() {
     if (int === null) {
@@ -43,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       clearInterval(int);
       int = null;
+      functionIsRunning = false;
     }
   }
 
@@ -74,8 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
     timerRef.innerHTML = ` ${h} : ${m} : ${s} : ${ms}`;
   }
 
-  const lap = document.querySelector(".lapTimer");
-
   function lapButton() {
     if (!functionIsRunning) {
       // Rendre le button Lap innactive
@@ -87,7 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Event LISTENERS
   lap.addEventListener("click", lapButton);
+  resetButton.addEventListener("click", () => {
+    deleteChild();
+    reset();
+  });
   startButton.addEventListener("click", () => {
     startStop();
   });

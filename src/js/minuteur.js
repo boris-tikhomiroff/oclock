@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // DOM Content
+  // DOM CONTENT
   let display = document.querySelector(".countdown__display");
   let startButton = document.querySelector(".countdown__start");
   let resetButton = document.querySelector(".countdown__reset");
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     controls.classList.remove("not-visible");
   }
 
-  // Event listeners
+  // Event LISTENERS
   startButton.addEventListener("click", () => {
     tt();
     startStop();
