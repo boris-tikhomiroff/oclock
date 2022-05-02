@@ -149,7 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let x = userAlarm - current;
     let hours = formatTime(new Date(x).getHours() - 1);
     let min = formatTime(new Date(x).getMinutes());
-    // console.log(sum);
 
     if (userAlarm > current) {
       // console.log("prochainement");
@@ -176,11 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const seconds = formatTime(date.getSeconds());
 
     display.innerText = `${hour} : ${minutes} : ${seconds}`;
-  }
-
-  function toTimestamp(strDate) {
-    var datum = Date.parse(strDate);
-    return datum / 1000;
   }
 
   function formatTime(time) {
