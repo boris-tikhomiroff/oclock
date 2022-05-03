@@ -5,9 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HORLOGE</title>
+    <script src="/src/js/index.js"></script>
     <script src="/src/js/horloge.js"></script>
+    <link rel="stylesheet" href="/src/style/main.css" />
   </head>
   <body>
+    <!-------------------------------- CURSOR -------------------------------->
+    <div id="cursor">
+      <div class="cursor__circle"></div>
+    </div>
+
+    <header>
+      <div class="menu">
+        <div class="menu-tog">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <nav class="wrapper">
+        <svg
+          class="transition"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="path"
+            stroke="black"
+            fill="#FFF"
+            stroke-width="0px"
+            dur="10s"
+            vector-effect="non-scaling-stroke"
+            d="M 0 100 L 100 100 100 100 0 100 C 0 0, 0 0, 0 100"
+          />
+          <animateMotion dur="10s" repeatCount="indefinite">
+            <mpath xlink:href="#path" />
+          </animateMotion>
+        </svg>
+        <ul>
+          <li><a href="#">ACCUEIL</a></li>
+          <li><a href="/src/pages/horloge.html">HORLOGE</a></li>
+          <li><a href="/src/pages/minuteur.html">MINUTEUR</a></li>
+          <li><a href="#">REVEIL</a></li>
+        </ul>
+      </nav>
+    </header>
     <main>
       <h1 class="horloge"></h1>
       <p></p>

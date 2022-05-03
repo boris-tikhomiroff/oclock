@@ -9,7 +9,11 @@
     <script src="/src/js/reveil.js"></script>
   </head>
   <body>
-    <div id="clock"></div>
+    <!-------------------------------- CURSOR -------------------------------->
+    <div id="cursor">
+      <div class="cursor__circle"></div>
+    </div>
+    <!-- <div id="clock"></div>
 
     <div class="container">
       <div class="row">
@@ -37,5 +41,63 @@
         <li>Alarmes passées :</li>
       </ul>
     </div>
+
+    <p class="test"></p> -->
+
+    <!-- <section class="container">
+      <div class="time-display">
+          <div id="clock"></div>
+      </div>
+      <form class="setAlarm">
+      <label class="alarm-heading"><h3>Set Alarm(24-Hour Clock)</h3><label><br>
+      <div class="set-alarm-field">
+          <input type="number" name="a_hour" id="a_hour" placeholder="HH" max="23" min="00">
+          <input type="number" name="a_min" id="a_min" placeholder="MM" max="59" min="00">
+          <input type="number" name="a_sec" id="a_sec" placeholder="SS" max="59" min="00">
+      </div>
+          <div class="controls">
+              <button type="submit" class="set-alarm">Set Alarm</button>
+              <button type="reset" class="clear-alarm">Stop Alarm</button>
+          </div>
+      </form> 
+  </section>
+
+  <section>
+      <div>
+          <h3 class="alarm-heading">Upcoming Alarms</h3>
+      </div>
+      <div>
+          <ul id = "myList">
+              <li>Alarmes à venir :</li>
+          </ul>
+          <ul >
+            <li>Alarmes passées :</li>
+          </ul>
+      </div>
+  </section> -->
+
+    <main>
+      <article>
+        <h1>Alarm clock</h1>
+        <h2 class="display"></h2>
+        <input class="alarm__input" type="datetime-local" />
+        <input class="alarm__text" type="text" placeholder="Your text" />
+        <div class="control">
+          <button class="control__setButton">Set Alarm</button>
+          <button class="control__clearButton">Clear Alarm</button>
+        </div>
+
+        <ul>
+          <li>Alarmes à venir :</li>
+        </ul>
+        <ul>
+          <li>Alarmes passées :</li>
+        </ul>
+
+        <!-- <div>
+          <div id="alarming"></div>
+        </div> -->
+      </article>
+    </main>
   </body>
 </html>

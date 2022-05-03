@@ -4,6 +4,7 @@
 - NAV
 
 */
+
 /* ------------------------------------------------
                     RESET
 --------------------------------------------------- */
@@ -12,8 +13,7 @@
 *::before {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   list-style: none;
 }
 
@@ -28,6 +28,7 @@ button {
   border: none;
   color: inherit;
   font-family: inherit;
+  // background-color: inherit;
   text-align: center;
 }
 
@@ -43,9 +44,23 @@ body {
   cursor: none;
 }
 
+
+// .para {
+//   // display: hidden;
+//   opacity: 0;
+//   color: red;
+// }
+
+// .active {
+//   // display: block;
+//   opacity: 1;
+//   color: blue;
+// }
+
 /* ------------------------------------------------
                     NAV
 --------------------------------------------------- */
+
 .menu {
   position: fixed;
   top: 0;
@@ -53,15 +68,9 @@ body {
   width: 100%;
   height: 50px;
   z-index: 10%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  align-items: center;
+  justify-content: flex-end;
   padding: 0 2vw;
   z-index: 10;
   mix-blend-mode: difference;
@@ -69,29 +78,20 @@ body {
 
 .menu-tog {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 30px;
   height: 10px;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-transition: 0.5s;
+  justify-content: space-around;
+  // cursor: pointer;
   transition: 0.5s;
-  -webkit-transform: center;
-          transform: center;
+  transform: center;
 }
 
 .menu-tog span {
   height: 2px;
-  background-color: white;
-  -webkit-transform-origin: center;
-          transform-origin: center;
-  -webkit-transition: 0.2s;
+  background-color: rgb(255, 255, 255);
+  transform-origin: center;
   transition: 0.2s;
 }
 
@@ -111,28 +111,20 @@ body {
 
 .menu-tog.active span:nth-child(1) {
   top: 40%;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .menu-tog.active span:nth-child(2) {
   bottom: 40%;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .wrapper {
   position: fixed;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   min-height: 100%;
 }
 
@@ -149,19 +141,11 @@ ul {
   top: -5vh;
   z-index: 2;
   opacity: 0;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
   height: 300px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
   pointer-events: none;
   color: black;
@@ -171,6 +155,10 @@ ul.active {
   opacity: 1;
   pointer-events: all;
 }
+
+// li:hover {
+//   cursor: pointer;
+// }
 
 /* ------------------------------------------------
                     CURSOR
@@ -187,40 +175,41 @@ ul.active {
 
 @media (hover: hover) and (pointer: fine) {
   .cursor__circle {
-    -webkit-transform: scale(2);
-            transform: scale(2);
+    transform: scale(2);
     width: 16px;
     height: 16px;
     margin-top: -50%;
     margin-left: -50%;
     border-radius: 50%;
-    border: solid 1px white;
-    -webkit-transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    // background-color: white;
+    border: solid 1px rgb(255, 255, 255);
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+      background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+      border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+      width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+      height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   }
+
+  // Annimation sur le burger
   .menu-tog:hover span {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    transform: scale(1.1);
+    // transform: rotate(360deg);
   }
 }
 
 /* ------------------------------------------------
                     MINUTEUR
 --------------------------------------------------- */
-.timer__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  width: 100%;
-}
+.timer {
+  &__container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 
-.timer__container:nth-child(2) {
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+    &:nth-child(2) {
+      justify-content: space-evenly;
+    }
+  }
 }
 
 .not-visible {
@@ -231,7 +220,63 @@ ul.active {
 /* ------------------------------------------------
                     CHRONOMETRE
 --------------------------------------------------- */
+// .stopWatch {
+//   .container {
+//     background-color: #ffffff;
+//     width: 40%;
+//     min-width: 500px;
+//     position: absolute;
+//     transform: translate(-50%, -50%);
+//     top: 50%;
+//     left: 50%;
+//     padding: 20px 0;
+//     padding-bottom: 50px;
+//     border-radius: 10px;
+//   }
+// }
+
+// .timerDisplay {
+//   position: relative;
+//   width: 92%;
+//   background: #ffffff;
+//   left: 4%;
+//   padding: 40px 0;
+//   font-family: "Roboto mono", monospace;
+//   color: #0381bb;
+//   font-size: 40px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-around;
+//   border-radius: 5px;
+//   box-shadow: 0 0 20px rgba(0, 139, 253, 0.25);
+// }
+
+// .buttons {
+//   width: 90%;
+//   margin: 60px auto 0 auto;
+//   display: flex;
+//   justify-content: space-around;
+// }
+// .buttons button {
+//   width: 120px;
+//   height: 45px;
+//   background-color: #205e94;
+//   color: #ffffff;
+//   border: none;
+//   font-family: "Poppins", sans-serif;
+//   font-size: 18px;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   outline: none;
+// }
+
+// .buttons button:nth-last-child(2) {
+//   background-color: #d23332;
+// }
+// .buttons button:nth-last-child(1) {
+//   background-color: #20b380;
+// }
+
 /* ------------------------------------------------
                     REVEIL
 --------------------------------------------------- */
-/*# sourceMappingURL=main.css.map */
