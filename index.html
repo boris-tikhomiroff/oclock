@@ -5,18 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>O'Clock - Project</title>
-    <link rel="stylesheet" href="src/style/main.css" />
     <script src="src/js/index.js"></script>
+    <link rel="stylesheet" href="src/style/main.css" />
   </head>
   <body>
-  <!-------------------------------- CURSOR -------------------------------->
+    <!-------------------------------- CURSOR -------------------------------->
     <div id="cursor">
       <div class="cursor__circle"></div>
     </div>
 
-    <header>
+    <!-------------------------------- NOISE -------------------------------->
+    <div class="noise"></div>
+
+    <!-------------------------------- BANNERS -------------------------------->
+    <div class="frame frame__top"></div>
+    <div class="frame frame__right"></div>
+    <div class="frame frame__bottom"></div>
+    <div class="frame frame__left"></div>
+
+    <div class="skull skull__top skull__left"></div>
+    <div class="skull skull__top skull__right"></div>
+    <div class="skull skull__bottom skull__left"></div>
+    <div class="skull skull__bottom skull__right"></div>
+
+    <!-- <header>
       <div class="menu">
-        <div class="menu-tog">
+        <div class="menu__tog">
           <span></span>
           <span></span>
         </div>
@@ -31,7 +45,7 @@
           <path
             class="path"
             stroke="black"
-            fill="#FFF"
+            fill="#dafc45"
             stroke-width="0px"
             dur="10s"
             vector-effect="non-scaling-stroke"
@@ -42,12 +56,32 @@
           </animateMotion>
         </svg>
         <ul>
-          <li><a href="#">ACCUEIL</a></li>
-          <li><a href="/src/pages/horloge.html">HORLOGE</a></li>
-          <li><a href="/src/pages/minuteur.html">MINUTEUR</a></li>
-          <li><a href="#">REVEIL</a></li>
+          <li><a href="/src/pages/horloge.html">CLOCK</a></li>
+          <li><a href="/src/pages/minuteur.html">STOPWATCH</a></li>
+          <li><a href="#">ALARM CLOCK</a></li>
+        </ul>
+      </nav>
+    </header> -->
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/index.html">HOME</a></li>
+          <li><a href="/src/pages/horloge.html">CLOCK</a></li>
+          <li><a href="/src/pages/horloge.html">STOPWATCH</a></li>
+          <li><a href="/src/pages/horloge.html">ALARM</a></li>
+          <li><a href="/src/pages/horloge.html">TMER</a></li>
         </ul>
       </nav>
     </header>
+    <main>
+      <section class="home">
+        <h2 class="home__fadeup">A momentary lapse</h2>
+        <div class="home__reveal">
+          <div class="image-wrap">
+            <img src="src/images/levi-meir-clancy-h2UcC6lXlJs-unsplash.jpg" />
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

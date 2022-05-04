@@ -6,14 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minuteur</title>
     <link rel="stylesheet" href="../style/main.css" />
+    <script src="/src/js/index.js"></script>
     <script src="../js/minuteur.js"></script>
   </head>
   <body>
+    <!-------------------------------- NOISE -------------------------------->
+    <div class="noise"></div>
     <!-------------------------------- CURSOR -------------------------------->
     <div id="cursor">
       <div class="cursor__circle"></div>
     </div>
-    <main>
+
+    <!-------------------------------- BANNERS -------------------------------->
+    <div class="frame frame__top"></div>
+    <div class="frame frame__right"></div>
+    <div class="frame frame__bottom"></div>
+    <div class="frame frame__left"></div>
+
+    <div class="skull skull__top skull__left"></div>
+    <div class="skull skull__top skull__right"></div>
+    <div class="skull skull__bottom skull__left"></div>
+    <div class="skull skull__bottom skull__right"></div>
+
+    <main class="timer__main">
       <div class="countdown">
         <h2>Countdown</h2>
         <div class="countdown__display">

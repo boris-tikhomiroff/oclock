@@ -2,56 +2,56 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ------------------------------------------------
                     BURGER MENU
 --------------------------------------------------- */
-  let path = document.querySelector(".path");
+  // let path = document.querySelector(".path");
 
-  function lerp(start, end, t) {
-    return start * (1 - t) + end * t;
-  }
+  // function lerp(start, end, t) {
+  //   return start * (1 - t) + end * t;
+  // }
 
-  let toggle = false;
+  // let toggle = false;
 
-  // Start SVG at bottom of screen
-  let y = 100;
-  let c = 100;
+  // // Start SVG at bottom of screen
+  // let y = 100;
+  // let c = 100;
 
-  function animate() {
-    if (toggle) {
-      y = lerp(y, 0, 0.035);
-      c = lerp(c, 0, 0.105);
-      path.setAttribute(
-        "d",
-        `M 0 ${y} L 0 100 100 100 100 ${y} C ${50} ${c}, ${50} ${c}, 0 ${y}`
-      );
-    } else {
-      y = lerp(y, 100, 0.055);
-      c = lerp(c, 100, 0.075);
-      path.setAttribute(
-        "d",
-        `M 0 ${y} L 0 100 100 100 100 ${y} C 50 ${c}, ${50} ${c}, 0 ${y}`
-      );
-    }
+  // function animate() {
+  //   if (toggle) {
+  //     y = lerp(y, 0, 0.035);
+  //     c = lerp(c, 0, 0.105);
+  //     path.setAttribute(
+  //       "d",
+  //       `M 0 ${y} L 0 100 100 100 100 ${y} C ${50} ${c}, ${50} ${c}, 0 ${y}`
+  //     );
+  //   } else {
+  //     y = lerp(y, 100, 0.055);
+  //     c = lerp(c, 100, 0.075);
+  //     path.setAttribute(
+  //       "d",
+  //       `M 0 ${y} L 0 100 100 100 100 ${y} C 50 ${c}, ${50} ${c}, 0 ${y}`
+  //     );
+  //   }
 
-    requestAnimationFrame(animate);
-  }
+  //   requestAnimationFrame(animate);
+  // }
 
-  animate();
+  // animate();
 
-  let menuToggle = document.querySelector(".menu-tog");
-  let ul = document.querySelector("ul");
-  menuToggle.addEventListener("click", () => {
-    setTimeout(() => {
-      toggle = !toggle;
-    }, 300);
-    if (toggle) {
-      ul.classList.remove("active");
-    } else {
-      setTimeout(() => {
-        ul.classList.add("active");
-      }, 1000);
-    }
+  // let menuToggle = document.querySelector(".menu__tog");
+  // let ul = document.querySelector("ul");
+  // menuToggle.addEventListener("click", () => {
+  //   setTimeout(() => {
+  //     toggle = !toggle;
+  //   }, 300);
+  //   if (toggle) {
+  //     ul.classList.remove("active");
+  //   } else {
+  //     setTimeout(() => {
+  //       ul.classList.add("active");
+  //     }, 1000);
+  //   }
 
-    menuToggle.classList.toggle("active");
-  });
+  //   menuToggle.classList.toggle("active");
+  // });
 
   /* ------------------------------------------------
                     CURSOR
@@ -118,5 +118,66 @@ document.addEventListener("DOMContentLoaded", () => {
       const className = this.getAttribute("cursor-class");
       cursor.classList.remove(className);
     });
+  });
+ 
+  
+});
+
+/* ------------------------------------------------
+                  IMAGE
+--------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", function () {
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.4
+  };
+
+  // IMAGE ANIMATION
+
+  let revealCallback = (entries) => {
+    entries.forEach((entry) => {
+      let container = entry.target;
+
+      if (entry.isIntersecting) {
+        console.log(container);
+        container.classList.add("animating");
+        return;
+      }
+
+      if (entry.boundingClientRect.top > 0) {
+        container.classList.remove("animating");
+      }
+    });
+  };
+
+  let revealObserver = new IntersectionObserver(revealCallback, options);
+
+  document.querySelectorAll(".home__reveal").forEach((reveal) => {
+    revealObserver.observe(reveal);
+  });
+
+  // TEXT ANIMATION
+
+  let fadeupCallback = (entries) => {
+    entries.forEach((entry) => {
+      let container = entry.target;
+      container.classList.add("not-fading-up");
+
+      if (entry.isIntersecting) {
+        container.classList.add("fading-up");
+        return;
+      }
+
+      if (entry.boundingClientRect.top > 0) {
+        container.classList.remove("fading-up");
+      }
+    });
+  };
+
+  let fadeupObserver = new IntersectionObserver(fadeupCallback, options);
+
+  document.querySelectorAll(".home__fadeup").forEach((fadeup) => {
+    fadeupObserver.observe(fadeup);
   });
 });
