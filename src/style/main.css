@@ -59,7 +59,7 @@ body {
 }
 
 header {
-  height: 9vh;
+  height: 8vh;
   width: 100%;
   font-size: clamp(0.7rem, 1vw, 0.9rem);
 }
@@ -108,6 +108,10 @@ header a {
             align-items: center;
     width: 100%;
   }
+}
+
+.not-visible {
+  opacity: 0;
 }
 
 /* ------------------------------------------------
@@ -166,7 +170,7 @@ header a {
   display: -ms-grid;
   display: grid;
   place-items: center;
-  height: 91vh;
+  height: 92vh;
   width: 100%;
   position: relative;
 }
@@ -358,7 +362,7 @@ SIDE BANNERS
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
+  height: 92vh;
   font-family: Termina, sans-serif;
   text-transform: uppercase;
   -webkit-text-stroke: 2px #ffffff;
@@ -398,7 +402,7 @@ SIDE BANNERS
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 91vh;
+  height: 92vh;
   font-family: Termina, sans-serif;
   text-transform: uppercase;
   -webkit-text-stroke: 2px #ffffff;
@@ -432,7 +436,7 @@ SIDE BANNERS
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
+  height: 92vh;
   width: 100%;
   font-family: Termina, sans-serif;
   text-transform: uppercase;
@@ -505,12 +509,17 @@ SIDE BANNERS
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
+  height: 92vh;
+  width: 100%;
   font-family: Termina, sans-serif;
   text-transform: uppercase;
   -webkit-text-stroke: 2px #ffffff;
   color: transparent;
   font-size: clamp(1.5rem, 5vw, 3rem);
+}
+
+.alarm__main article {
+  width: 80%;
 }
 
 .alarm__main button {

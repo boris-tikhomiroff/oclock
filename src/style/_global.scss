@@ -67,7 +67,7 @@ body {
 //                     HEADER
 // --------------------------------------------------- */
 header {
-  height: 9vh;
+  height: 8vh;
   // background-color: red;
   width: 100%;
   font-size: clamp(0.7rem, 1vw, 0.9rem);
@@ -102,6 +102,10 @@ header {
     align-items: center;
     width: 100%;
   }
+}
+
+.not-visible{
+  opacity: 0;
 }
 
 /* ------------------------------------------------
@@ -276,7 +280,7 @@ header {
 .home {
   display: grid;
   place-items: center;
-  height: 91vh;
+  height: 92vh;
   width: 100%;
   position: relative;
 

@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const audio = new Audio(
-    "https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3"
-  );
+  const audio = new Audio("/src/audio/alarm.wav");
   const setButton = document.querySelector(".control__setButton");
   const clearButton = document.querySelector(".control__clearButton");
   const alarmInput = document.querySelector(".alarm__input");
   const userMessage = document.querySelector(".alarm__text");
-  const nextAlarm = document.querySelector("ul:first-of-type");
-  const pastAlarm = document.querySelector("ul:not(ul:first-of-type)");
+  const nextAlarm = document.querySelector("article > ul:first-of-type");
+  const pastAlarm = document.querySelector(
+    "ul:not(article > ul:first-of-type)"
+  );
   let displayMessage = null;
   audio.loop = true;
   let alarmTime = null;
@@ -38,24 +38,27 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(`ACTUEL : ${current}`);
 
     let sum = Date.parse(newAlarm) - Date.parse(current);
-    let date = new Date(sum).toLocaleTimeString("fr-FR", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
+    // let date = new Date(sum).toLocaleTimeString("fr-FR", {
+    //   hour: "2-digit",
+    //   minute: "2-digit",
+    //   second: "2-digit",
+    // });
+    let hours = new Date(sum).getHours() - 1;
+    let min = new Date(sum).getMinutes();
+    let sec = new Date(sum).getSeconds();
+    console.log(hours, min, sec);
 
     if (Date.parse(current) < Date.parse(newAlarm)) {
-      console.log("alarme à venir");
-
-      console.log(date);
-      li.innerHTML = `${userAlarm.toLocaleTimeString("fr-FR", options)} - ${
+      // console.log("alarme à venir");
+      li.innerHTML = `${userAlarm.toLocaleTimeString("fr-FR", options)} ${
         userMessage.value
-      }, dans ${date}.`;
+      } - in ${formatTime(hours)} : ${formatTime(min)} : ${formatTime(sec)}.`;
       nextAlarm.appendChild(li);
     } else {
-      console.log("alarme passée");
-      li.innerHTML = `${userAlarm.toLocaleTimeString("fr-FR", options)} - ${
+      // console.log("alarme passée");
+      li.innerHTML = `${userAlarm.toLocaleTimeString("fr-FR", options)} ${
         userMessage.value
-      }, dans ${date}.`;
+      }`;
       pastAlarm.appendChild(li);
     }
 
@@ -63,14 +66,17 @@ document.addEventListener("DOMContentLoaded", () => {
       // const current = new Date();
       // const timeToAlarm = new Date(alarmTime);
       if (current.getTime() < userAlarm.getTime()) {
+        let message = userMessage.value;
         const timeout = userAlarm.getTime() - current.getTime();
+
+        console.log(message);
+
         let alarmTimeout = setTimeout(() => audio.play(), timeout);
-        let messageAlert = setTimeout(
-          () => window.alert(userMessage.value),
-          timeout
-        );
-        // window.alert("Reveil set up pour le" + " " + userMessage.value);
+        setTimeout(() => window.alert(message), timeout);
       }
+    } else {
+      // INDIQUER A L'USER D'ECRIRE UN MESSAGE
+      console.log("hello");
     }
   }
 

@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     h = h < 10 ? "0" + h : h;
     m = m < 10 ? "0" + m : m;
     s = s < 10 ? "0" + s : s;
-    
 
     if (s != 0) {
       // console.log(s);
@@ -69,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       // DO AN ACTION (ne pas créer un nouverau paragraphe, faire une annimation sur celui existant)
       // para.innerHTML = "Spécifiez un minuteur";
-      message.innerText = "Spécifiez un minuteur";
+      message.innerText = "You have to specify a time.";
     } else if (int === null) {
       int = setInterval(timer, 1000);
       startButton.textContent = "Stop";
@@ -84,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (hours.value <= 0 && minutes.value <= 0 && seconds.value <= 0) {
       // Ajouter Effect !
       for (let i = 0; i < timeInputs.length; i++) {
-        timeInputs[i].style.background = "red";
+        // timeInputs[i].style.background = "red";
         message.innerText = "Set your timer using the inputs below.";
       }
     } else {
@@ -102,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function tt() {
+  function showHide() {
     if (
       seconds.value == 0 &&
       minutes.value == 0 &&
@@ -116,30 +115,29 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  function dd() {
+  function remove() {
     controls.classList.remove("not-visible");
   }
 
   // Event LISTENERS
   startButton.addEventListener("click", () => {
-    tt();
+    showHide();
     startStop();
   });
   window.addEventListener("keydown", (event) => {
     if (event.key === "s") {
-      tt();
+      showHide();
       startStop();
     }
   });
   resetButton.addEventListener("click", () => {
     reset();
-    dd();
+    remove();
   });
   window.addEventListener("keydown", (event) => {
     if (event.key === "q") {
       reset();
-      dd();
+      remove();
     }
   });
 });
-
