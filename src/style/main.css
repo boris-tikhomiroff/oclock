@@ -255,6 +255,14 @@ img {
           transition-delay: 0.7s;
 }
 
+a img {
+  height: 2.5vw;
+  width: 2.5vw;
+  position: absolute;
+  bottom: 3vw;
+  right: 3vw;
+}
+
 /* ------------------------------------------------
 SIDE BANNERS
 --------------------------------------------------- */
